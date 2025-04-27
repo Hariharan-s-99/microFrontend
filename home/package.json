@@ -19,11 +19,15 @@
     "postcss-loader": "^8.0.0",
     "react-refresh": "^0.14.0",
     "ts-node": "^10.9.2",
+    "@types/history": "4.7.11",
+    "@types/react-router-dom": "^5.3.3",
     "typescript": "^5.7.3"
   },
   "dependencies": {
     "@module-federation/enhanced": "^0.8.9",
+    "history": "4.10.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4"
   }
 }
