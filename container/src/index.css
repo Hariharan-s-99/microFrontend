@@ -1,10 +1,60 @@
 body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
-  font-size: 3rem;
-  margin: auto;
-  max-width: 800px;
-  margin-top: 20px;
+
+
+.tabbar-container {
+
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tabbar-tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.tabbar-tab {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  color: #666;
+}
+
+.tabbar-tab:hover {
+  background-color: #e6f0ff;
+  color: #0056b3;
+}
+
+.tabbar-tab.active {
+  background-color: #e0ebff;
+  border-bottom: 2px solid #0056b3;
+  color: #0056b3;
+}
+
+.tabbar-content {
+  padding: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.tab-content {
+  padding: 10px 0;
 }
