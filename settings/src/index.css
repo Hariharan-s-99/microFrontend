@@ -46,3 +46,7 @@ footer {
   font-size: 0.8em;
   color: #666;
 }
+
+footer:hover {
+  background: red;
+}
