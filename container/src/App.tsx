@@ -12,11 +12,13 @@ import Settings from "./Settings";
 
 const App = () => (
   <Router>
-    <TabBar />
-    <Switch>
-      <Route path="/home" component={Home} />
-      <Route path="/settings" component={Settings} />
-    </Switch>
+    <div className="host-container">
+      <TabBar />
+      <Switch>
+        <Route path="/home" component={Home} />
+        <Route path="/settings" component={Settings} />
+      </Switch>
+    </div>
   </Router>
 );
 const root = ReactDOM.createRoot(

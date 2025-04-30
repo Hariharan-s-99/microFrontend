@@ -45,8 +45,21 @@ export default defineConfig({
       },
       {
         test: /\.css$/,
-        use: ["postcss-loader"],
-        type: "css",
+        use: [
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require("postcss-prefix-selector")({
+                    prefix: ".host-container",
+                    exlude: [":root", "body", "html"],
+                  }),
+                ],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(jsx?|tsx?)$/,

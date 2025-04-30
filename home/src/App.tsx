@@ -48,7 +48,7 @@ const NotFound: React.FC = () => {
 const App = ({history}: any) => {
   return (
     <Router history={history} >
-      <div className="app">
+      <div className="remote-home">
         <header>
           <h1>HOME</h1>
           <nav>
