@@ -20,9 +20,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /\.module\.css$/,
         use: [
-          "style-loader", // Injects CSS into the DOM
-          "css-loader", // Resolves @import and url()
+          "style-loader",
+          "css-loader",
           {
             loader: "postcss-loader",
             options: {
@@ -30,9 +31,8 @@ module.exports = {
                 plugins: [
                   require("autoprefixer"),
                   require("postcss-prefix-selector")({
-                    prefix: ".webpack", // Your app's container class
+                    prefix: ".webpack",
                     transform: function (prefix, selector, prefixedSelector) {
-                      // Skip already-prefixed selectors or global tags
                       if (
                         selector.startsWith(prefix) ||
                         selector.startsWith("html") ||
@@ -40,10 +40,59 @@ module.exports = {
                         selector.startsWith(":root") ||
                         selector === "*"
                       ) {
-                        console.log(selector, "selector")
                         return selector;
                       }
-                      console.log(`${prefix} ${selector}`, "`${prefix} ${selector}`")
+                      return `${prefix} ${selector}`;
+                    },
+                  }),
+                ],
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.module\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                getLocalIdent: (context, localIdentName, localName, options) => {
+                  const hash = require('crypto')
+                    .createHash('md5')
+                    .update(context.resourcePath + localName)
+                    .digest('hex')
+                    .substring(0, 5);
+
+                  if (localName === 'webpack') return localName;
+                  return `${localName}_${hash}`;
+                }
+              },
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+
+              postcssOptions: {
+                plugins: [
+                  require("autoprefixer"),
+                  require("postcss-prefix-selector")({
+                    prefix: ".webpack",
+                    transform: function (prefix, selector, prefixedSelector) {
+                      // This runs after CSS modules has created hashed class names
+                      if (
+                        selector.startsWith(prefix) ||
+                        selector.startsWith("html") ||
+                        selector.startsWith("body") ||
+                        selector.startsWith(":root") ||
+                        selector === "*"
+                      ) {
+                        return selector;
+                      }
                       return `${prefix} ${selector}`;
                     },
                   }),
@@ -69,7 +118,7 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
-    port: 3000,
+    port: 3001,
     hot: true,
   },
 };
