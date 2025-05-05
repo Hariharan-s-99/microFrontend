@@ -11,10 +11,10 @@ export interface RouteComponentProps {
   match: any;
 }
 
-const history = createMemoryHistory({initialEntries: ["/"]});
+const history = createMemoryHistory({initialEntries: ["/v2"]});
 
 ReactDOM.render(
-  <Router location={history.location} navigator={history}>
+  <Router location={history.location} navigator={history} basename="/v2">
     <App history={history}/>
   </Router>,
   document.getElementById("root")
