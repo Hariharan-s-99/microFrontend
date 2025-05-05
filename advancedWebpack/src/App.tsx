@@ -15,10 +15,9 @@ const App: React.FC<{ history: MemoryHistory }> = ({ history }) => {
     });
     return unlisten;
   }, [history]);
-  
+
   return (
     <div className="webpack">
-      {console.log("mounted")}
       <nav className="navigation">
         <ul>
           <li>
