@@ -1,28 +1,45 @@
-import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/contact';
+import React, { useLayoutEffect, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/contact";
+import { MemoryHistory } from "history";
 
+const App: React.FC<{ history: MemoryHistory }> = ({ history }) => {
+  const [location, setLocation] = useState(history.location);
 
-const App: React.FC = () => {
+  useLayoutEffect(() => {
+    const unlisten = history.listen(({ location }) => {
+      console.log(location)
+      setLocation(location);
+    });
+    return unlisten;
+  }, [history]);
+  
   return (
     <div className="webpack">
+      {console.log("mounted")}
       <nav className="navigation">
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
         </ul>
       </nav>
-      
+
       <main className="content">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route render={() => <h2>Page not found</h2>} />
-        </Switch>
+        <Routes>
+          <Route path="/" Component={Home} />
+          <Route path="/about" Component={About} />
+          <Route path="/contact" Component={Contact} />
+          <Route path="*" Component={() => <h2>Page not found</h2>} />
+        </Routes>
       </main>
     </div>
   );
