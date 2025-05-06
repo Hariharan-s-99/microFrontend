@@ -5,16 +5,7 @@ import About from "./components/About";
 import Contact from "./components/contact";
 import { BrowserHistory, MemoryHistory } from "history";
 
-const App: React.FC<{ history: BrowserHistory }> = ({ history }) => {
-  const [location, setLocation] = useState(history.location);
-
-  useLayoutEffect(() => {
-    const unlisten = history.listen(({ location }) => {
-      console.log(location)
-      setLocation(location);
-    });
-    return unlisten;
-  }, [history]);
+const App: React.FC= () => {
 
   return (
     <div className="webpack">
