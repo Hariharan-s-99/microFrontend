@@ -3,9 +3,9 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/contact";
-import { MemoryHistory } from "history";
+import { BrowserHistory, MemoryHistory } from "history";
 
-const App: React.FC<{ history: MemoryHistory }> = ({ history }) => {
+const App: React.FC<{ history: BrowserHistory }> = ({ history }) => {
   const [location, setLocation] = useState(history.location);
 
   useLayoutEffect(() => {

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, createMemoryRouter, Router } from "react-router-dom";
 import "./styles/main.css";
 import App from "./App";
-import { createMemoryHistory } from "history";
+import { createBrowserHistory, createMemoryHistory } from "history";
 
 export interface RouteComponentProps {
   history: any;
@@ -11,11 +11,11 @@ export interface RouteComponentProps {
   match: any;
 }
 
-const history = createMemoryHistory({initialEntries: ["/v2"]});
+const history = createBrowserHistory();
 
 ReactDOM.render(
-  <Router location={history.location} navigator={history} basename="/v2">
+  <BrowserRouter >
     <App history={history}/>
-  </Router>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
