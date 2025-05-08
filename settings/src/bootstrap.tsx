@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 const mount = (element: any) => {
-  ReactDOM.render(<App history={history} />, element);
+  ReactDOM.render(<App/>, element);
 
   return {};
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import "./index.css";
 
 // Home Component
@@ -42,16 +42,16 @@ const NotFound: React.FC = () => {
 };
 
 // Main App Component
-const App = ({ history }: { history: any }) => {
+const App = () => {
   return (
-    <Router history={history} >
+    <BrowserRouter>
       <div className="remote-settings">
         <header>
           <h1>SETTINGS</h1>
           <nav>
             <ul>
               <li>
-                <Link to="/mf2/settings">Settings</Link>
+                <Link to="/mf2/home">Settings</Link>
               </li>
               <li>
                 <Link to="/mf2/Email">Email</Link>
@@ -64,14 +64,14 @@ const App = ({ history }: { history: any }) => {
         </header>
         <main>
           <Switch>
-            <Route exact path="/mf2/settings" component={Settings} />
+            <Route exact path="/mf2/home" component={Settings} />
             <Route path="/mf2/email" component={Email} />
             <Route path="/mf2/billing" component={Billing} />
             <Route component={NotFound} />
           </Switch>
         </main>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 

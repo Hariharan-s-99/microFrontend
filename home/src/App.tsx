@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import "./index.css";
 
 
@@ -43,8 +43,10 @@ const NotFound: React.FC = () => {
 };
 
 // Main App Component
-const App = ({history}: any) => {
+const App = () => {
   return (
+    <BrowserRouter>
+
       <div className="remote-home">
         <header>
           <h1>HOME</h1>
@@ -71,6 +73,8 @@ const App = ({history}: any) => {
           </Switch>
         </main>
       </div>
+      </BrowserRouter>
+
   );
 };
 

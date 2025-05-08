@@ -32,12 +32,12 @@ const TabBar: React.FC = () => {
 
   useEffect(() => {
     // Navigate to default tab (home) on component mount
-    history.push("/mf1");
+    history.push("/mf1/home");
   }, []);
 
   const handleTabChange = (tab: "mf1" | "mf2") => {
     setActiveTab(tab);
-    history.push(`/${tab}`); // This updates the route on tab change
+    history.push(`/${tab}/home`); // This updates the route on tab change
   };
 
   return (
