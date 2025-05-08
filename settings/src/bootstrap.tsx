@@ -3,25 +3,10 @@ import { createMemoryHistory } from "history";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-const mount = (
-    element: any,
-    { updateContainerBrowserHistory, defaultHistory }: any
-) => {
-    const history = defaultHistory || createMemoryHistory();
+const mount = (element: any) => {
+  ReactDOM.render(<App history={history} />, element);
 
-    if (updateContainerBrowserHistory)
-        history.listen(updateContainerBrowserHistory);
-    ReactDOM.render(<App history={history} />, element);
-
-    return {
-        updateRemoteMemoryHistory(containerHistoryState: any) {
-            const remoteHistory = history.location;
-            console.log("remoteHistory.pathname", remoteHistory.pathname);
-            console.log("containerHistoryState.pathname", containerHistoryState.pathname);
-            if (remoteHistory.pathname !== containerHistoryState.pathname)
-                history.push(containerHistoryState.pathname);
-        },
-    };
+  return {};
 };
 
 export { mount };

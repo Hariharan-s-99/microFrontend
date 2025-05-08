@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Router, Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import "./index.css";
-import { createBrowserHistory } from 'history';
 
-const history = createBrowserHistory();
 
 // Home Component
 const Home: React.FC = () => {
@@ -47,34 +45,32 @@ const NotFound: React.FC = () => {
 // Main App Component
 const App = ({history}: any) => {
   return (
-    <Router history={history} >
       <div className="remote-home">
         <header>
           <h1>HOME</h1>
           <nav>
             <ul>
               <li>
-                <Link to="/home">Home</Link>
+                <Link to="/mf1/home">Home</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/mf1/about">About</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/mf1/contact">Contact</Link>
               </li>
             </ul>
           </nav>
         </header>
         <main>
           <Switch>
-            <Route exact path="/home" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
+            <Route exact path="/mf1/home" component={Home} />
+            <Route path="/mf1/about" component={About} />
+            <Route path="/mf1/contact" component={Contact} />
             <Route component={NotFound} />
           </Switch>
         </main>
       </div>
-    </Router>
   );
 };
 

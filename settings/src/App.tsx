@@ -51,22 +51,22 @@ const App = ({ history }: { history: any }) => {
           <nav>
             <ul>
               <li>
-                <Link to="/settings">Settings</Link>
+                <Link to="/mf2/settings">Settings</Link>
               </li>
               <li>
-                <Link to="/Email">Email</Link>
+                <Link to="/mf2/Email">Email</Link>
               </li>
               <li>
-                <Link to="/Billing">Billing</Link>
+                <Link to="/mf2/Billing">Billing</Link>
               </li>
             </ul>
           </nav>
         </header>
         <main>
           <Switch>
-            <Route exact path="/settings" component={Settings} />
-            <Route path="/email" component={Email} />
-            <Route path="/billing" component={Billing} />
+            <Route exact path="/mf2/settings" component={Settings} />
+            <Route path="/mf2/email" component={Email} />
+            <Route path="/mf2/billing" component={Billing} />
             <Route component={NotFound} />
           </Switch>
         </main>

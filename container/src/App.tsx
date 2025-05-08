@@ -15,8 +15,8 @@ const App = () => (
     <div className="host-container">
       <TabBar />
       <Switch>
-        <Route path="/home" component={Home} />
-        <Route path="/settings" component={Settings} />
+        <Route path="/mf1" component={Home} />
+        <Route path="/mf2" component={Settings} />
       </Switch>
     </div>
   </Router>
@@ -28,14 +28,14 @@ root.render(<App />);
 
 const TabBar: React.FC = () => {
   const history = useHistory();
-  const [activeTab, setActiveTab] = useState<"home" | "settings">("home");
+  const [activeTab, setActiveTab] = useState<"mf1" | "mf2">("mf1");
 
   useEffect(() => {
     // Navigate to default tab (home) on component mount
-    history.push("/home");
+    history.push("/mf1");
   }, []);
 
-  const handleTabChange = (tab: "home" | "settings") => {
+  const handleTabChange = (tab: "mf1" | "mf2") => {
     setActiveTab(tab);
     history.push(`/${tab}`); // This updates the route on tab change
   };
@@ -44,14 +44,14 @@ const TabBar: React.FC = () => {
     <div className="tabbar-container">
       <div className="tabbar-tabs">
         <button
-          className={`tabbar-tab ${activeTab === "home" ? "active" : ""}`}
-          onClick={() => handleTabChange("home")}
+          className={`tabbar-tab ${activeTab === "mf1" ? "active" : ""}`}
+          onClick={() => handleTabChange("mf1")}
         >
           Home
         </button>
         <button
-          className={`tabbar-tab ${activeTab === "settings" ? "active" : ""}`}
-          onClick={() => handleTabChange("settings")}
+          className={`tabbar-tab ${activeTab === "mf2" ? "active" : ""}`}
+          onClick={() => handleTabChange("mf2")}
         >
           Settings
         </button>
@@ -59,8 +59,8 @@ const TabBar: React.FC = () => {
 
       <div className="tabbar-content">
         {/* Content rendered based on active tab */}
-        {activeTab === "home" && <Home />}
-        {activeTab === "settings" && <Settings />}
+        {activeTab === "mf1" && <Home />}
+        {activeTab === "mf2" && <Settings />}
       </div>
     </div>
   );
