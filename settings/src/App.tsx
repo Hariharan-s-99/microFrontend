@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link, MemoryRouter } from 'react-router-dom';
 import "./index.css";
 
 // Home Component
@@ -44,7 +44,7 @@ const NotFound: React.FC = () => {
 // Main App Component
 const App = () => {
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <div className="remote-settings">
         <header>
           <h1>SETTINGS</h1>
@@ -71,7 +71,7 @@ const App = () => {
           </Switch>
         </main>
       </div>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Switch,
   useHistory,
@@ -11,7 +11,7 @@ import Home from "./Home";
 import Settings from "./Settings";
 
 const App = () => (
-  <Router>
+  <BrowserRouter>
     <div className="host-container">
       <TabBar />
       <Switch>
@@ -19,7 +19,7 @@ const App = () => (
         <Route path="/mf2" component={Settings} />
       </Switch>
     </div>
-  </Router>
+  </BrowserRouter>
 );
 const root = ReactDOM.createRoot(
   document.getElementById("container") as HTMLElement
