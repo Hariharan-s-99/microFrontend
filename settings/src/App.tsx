@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Switch, Link, MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Link, MemoryRouter, Routes } from 'react-router-dom';
 import "./index.css";
 
 // Home Component
@@ -63,12 +63,12 @@ const App = () => {
           </nav>
         </header>
         <main>
-          <Switch>
-            <Route exact path="/mf2/home" component={Settings} />
-            <Route path="/mf2/email" component={Email} />
-            <Route path="/mf2/billing" component={Billing} />
-            <Route component={NotFound} />
-          </Switch>
+          <Routes>
+            <Route  path="/mf2/home" Component={Settings} />
+            <Route path="/mf2/email" Component={Email} />
+            <Route path="/mf2/billing" Component={Billing} />
+            <Route Component={NotFound} />
+          </Routes>
         </main>
       </div>
     </MemoryRouter>
