@@ -4,14 +4,5 @@ export const mfConfig = {
   exposes: {
     "./app": "./src/bootstrap.tsx",
   },
-  shared: [
-    "react",
-    "react-dom",
-    {
-      "react-router-dom": {
-        eager: true,
-        singleton: true,
-      },
-    },
-  ],
+  shared: [],
 };
