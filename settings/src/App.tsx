@@ -44,7 +44,7 @@ const NotFound: React.FC = () => {
 // Main App Component
 const App = () => {
   return (
-    <MemoryRouter>
+    <MemoryRouter basename="mf2">
       <div className="remote-settings">
         <header>
           <h1>SETTINGS</h1>
@@ -64,9 +64,9 @@ const App = () => {
         </header>
         <main>
           <Routes>
-            <Route  path="/mf2/home" Component={Settings} />
-            <Route path="/mf2/email" Component={Email} />
-            <Route path="/mf2/billing" Component={Billing} />
+            <Route  path="/home" Component={Settings} />
+            <Route path="/email" Component={Email} />
+            <Route path="/billing" Component={Billing} />
             <Route Component={NotFound} />
           </Routes>
         </main>
